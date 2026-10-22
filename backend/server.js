@@ -8,7 +8,7 @@ const {
 } = require("./sensors");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -127,6 +127,6 @@ app.get("/api/assess-step", (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log(`RudaX backend running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`RudaX backend running on port ${PORT}`);
 });
